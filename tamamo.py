@@ -15,6 +15,6 @@ async def guild(ctx): await ctx.send(f"**{ctx.guild.name}** ({ctx.guild.id})\nOw
 async def emojis(ctx): (await ctx.send(f"{''.join(list(str(emoji) for emoji in ctx.guild.emojis))}")) if len(ctx.guild.emojis) else (await ctx.send("This guild has no custom emojis."))
 @bot.command(aliases=["xk"], help="Fetches an xkcd comic by number.")
 async def xkcd(ctx, number:int=None): (await ctx.send(f"https://xkcd.com/{number}")) if number else (await ctx.send("https://xkcd.com/"))
-@bot.command(aliases=["shutdown", "kys"], help="Halts the bot.") # Shutdown command that checks for the bot owner without needing an extra line for the check.
-async def halt(ctx): (await bot.logout()) if (await bot.is_owner(ctx.author)) else None
+@bot.command(aliases=["shutdown", "kys"], help="Halts the bot. Owner only.")
+async def halt(ctx): (await bot.logout()) if (await bot.is_owner(ctx.author)) else (await ctx.send("You are not the owner of this bot."))
 bot.run(open("oauth.txt").read().strip("\n")) # Token should be stored in oauth.txt. The bot won't run without it.

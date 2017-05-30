@@ -13,7 +13,7 @@ below.
 
 * `emojis` - Lists the guild's custom emojis.
 * `guild` - Shows information about the current guild.
-* `halt` - Halts the bot.
+* `halt` - Halts the bot. Owner only.
 * `help` - Shows the list of commands.
 * `ping` - Pings the bot.
 * `user` - Shows information about a user.
