@@ -16,5 +16,5 @@ async def emojis(ctx): (await ctx.send(f"{''.join(list(str(emoji) for emoji in c
 @bot.command(aliases=["xk"], help="Fetches an xkcd comic by number.")
 async def xkcd(ctx, number:int=None): (await ctx.send(f"https://xkcd.com/{number}")) if number else (await ctx.send("https://xkcd.com/"))
 @bot.command(aliases=["shutdown", "kys"], help="Halts the bot. Owner only.")
-async def halt(ctx): (await bot.logout()) if (await bot.is_owner(ctx.author)) else (await ctx.send("You are not the owner of this bot."))
+async def halt(ctx): (await bot.logout()) if (await bot.is_owner(ctx.author)) else (await ctx.send("You do not own this bot."))
 bot.run(open("oauth.txt").read().strip("\n")) # Token should be stored in oauth.txt. The bot won't run without it.
