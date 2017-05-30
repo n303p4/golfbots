@@ -13,7 +13,7 @@ async def _user(ctx, *, user:discord.Member): await ctx.send(f"**{user.name}#{us
 async def guild(ctx): await ctx.send(f"**{ctx.guild.name}** ({ctx.guild.id})\nOwner: {ctx.guild.owner.name}#{ctx.guild.owner.discriminator}\nMembers: {len(ctx.guild.members)}\nText channels: {len(ctx.guild.text_channels)}\nVoice channels: {len(ctx.guild.voice_channels)}\nRoles: {len(ctx.guild.roles)}\nCustom emojis: {len(ctx.guild.emojis)}\nRegion: {ctx.guild.region}\n{ctx.guild.icon_url}")
 @bot.command(aliases=["elist"], help="Lists the guild's custom emojis.")
 async def emojis(ctx): (await ctx.send(f"{''.join(list(str(emoji) for emoji in ctx.guild.emojis))}")) if len(ctx.guild.emojis) else (await ctx.send("This guild has no custom emojis."))
-@bot.command(aliases=["xk"], help="Fetch an xkcd comic by number.")
+@bot.command(aliases=["xk"], help="Fetches an xkcd comic by number.")
 async def xkcd(ctx, number:int=None): (await ctx.send(f"https://xkcd.com/{number}")) if number else (await ctx.send("https://xkcd.com/"))
 @bot.command(aliases=["shutdown", "kys"], help="Halts the bot.") # Shutdown command that checks for the bot owner without needing an extra line for the check.
 async def halt(ctx): (await bot.logout()) if (await bot.is_owner(ctx.author)) else None
