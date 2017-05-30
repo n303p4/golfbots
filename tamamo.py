@@ -4,7 +4,7 @@ bot = commands.Bot(command_prefix=commands.when_mentioned_or("tam ", "tam"))
 bot.description = "This is Tamamo, a discord.py bot written in no more than 20 lines. Using semicolons is cheating."
 bot.check(lambda ctx: not ctx.author.bot) # Prevent the bot from replying to other bots.
 @bot.event # Two-line error handler that avoids unknown command messages and check failure responses.
-async def on_command_error(ctx, err): (await ctx.send(err)) if not isinstance(err, (commands.CommandNotFound, commands.CheckFailure)) else None
+async def on_command_error(ctx, exc): (await ctx.send(exc)) if not isinstance(exc, (commands.CommandNotFound, commands.CheckFailure)) else None
 @bot.command(aliases=["pong", "echo", "say"], help="Pings the bot.")
 async def ping(ctx, *, message:str=None): (await ctx.send("\u200b" + message)) if message else (await ctx.send(":ping_pong:"))
 @bot.command(name="user", aliases=["uinfo", "userinfo"], help="Shows information about a user.")
