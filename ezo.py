@@ -1,5 +1,5 @@
 from discord.ext import commands # This bot is released into the public domain, under the terms of the Unlicense. See http://unlicense.org/ for details.
-bot = commands.Bot(command_prefix=commands.when_mentioned_or("ezo ", "ezo"))
+bot = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or("ezo ", "ezo"))
 bot.description = "Ezo is yet another code golf Discord bot. Using semicolons is cheating."
 bot.check(lambda ctx: not ctx.author.bot) # Prevent the bot from replying to other bots.
 @bot.event # Two-line error handler that avoids unknown command messages and check failure responses.

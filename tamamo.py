@@ -1,6 +1,6 @@
 import discord # This bot is released into the public domain, under the terms of the Unlicense. See http://unlicense.org/ for details.
 from discord.ext import commands
-bot = commands.Bot(command_prefix=commands.when_mentioned_or("tam ", "tam"))
+bot = commands.AutoShardedBot(command_prefix=commands.when_mentioned_or("tam ", "tam"))
 bot.description = "This is Tamamo, a discord.py bot written in no more than 20 lines. Using semicolons is cheating."
 bot.check(lambda ctx: not ctx.author.bot) # Prevent the bot from replying to other bots.
 @bot.event # Two-line error handler that avoids unknown command messages and check failure responses.
